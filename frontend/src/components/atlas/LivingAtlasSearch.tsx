@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useAppStore } from '../../store/appStore';
-import { mockDatasets } from '../../data/mockData';
+import { useAppStore } from '../../lib/store/appStore';
+import { mockDatasets } from '../../lib/data/mockData';
 
 export function LivingAtlasSearch() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,7 +16,7 @@ export function LivingAtlasSearch() {
     const filtered = mockDatasets.filter(dataset =>
       dataset.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       dataset.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      dataset.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+      dataset.tags.some((tag: string) => tag.toLowerCase().includes(searchQuery.toLowerCase()))
     );
     setResults(filtered);
   };

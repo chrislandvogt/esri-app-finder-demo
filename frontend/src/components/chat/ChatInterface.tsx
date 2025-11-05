@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useAppStore } from '../../store/appStore';
-import { mockChatResponses, mockApps, mockDatasets } from '../../data/mockData';
+import { useAppStore } from '../../lib/store/appStore';
+import { mockChatResponses, mockApps, mockDatasets } from '../../lib/data/mockData';
 import type { ChatMessage } from '../../types';
 
 export function ChatInterface() {

@@ -1,5 +1,5 @@
-import { useAppStore } from '../../store/appStore';
-import { mockApps } from '../../data/mockData';
+import { useAppStore } from '../../lib/store/appStore';
+import { mockApps } from '../../lib/data/mockData';
 
 export function AppPreview() {
   const selectedApp = useAppStore((state) => state.selectedApp) || mockApps[0];
@@ -34,7 +34,7 @@ export function AppPreview() {
         <div className="mb-4">
           <h4 className="font-medium text-gray-900 text-sm mb-2">Key Features</h4>
           <ul className="space-y-1">
-            {selectedApp.features.map((feature, idx) => (
+            {selectedApp.features.map((feature: string, idx: number) => (
               <li key={idx} className="text-sm text-gray-600 flex items-start">
                 <span className="text-esri-blue-600 mr-2">✓</span>
                 {feature}
@@ -46,7 +46,7 @@ export function AppPreview() {
         <div className="mb-4">
           <h4 className="font-medium text-gray-900 text-sm mb-2">Use Cases</h4>
           <ul className="space-y-1">
-            {selectedApp.useCases.map((useCase, idx) => (
+            {selectedApp.useCases.map((useCase: string, idx: number) => (
               <li key={idx} className="text-sm text-gray-600 flex items-start">
                 <span className="text-green-600 mr-2">•</span>
                 {useCase}

@@ -1,7 +1,7 @@
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 import { MapContainer } from '../map/MapContainer';
-import { useAppStore } from '../../store/appStore';
+import { useAppStore } from '../../lib/store/appStore';
 
 export function Layout() {
   const sidebarOpen = useAppStore((state) => state.sidebarOpen);

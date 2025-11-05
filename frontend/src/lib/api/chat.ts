@@ -1,5 +1,5 @@
-import { apiClient } from './api';
-import { ChatRequest, ChatResponse } from '../types';
+import { apiClient } from './client';
+import { ChatRequest, ChatResponse } from '../../types';
 
 export const chatService = {
   async sendMessage(request: ChatRequest): Promise<ChatResponse> {

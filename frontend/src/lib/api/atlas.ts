@@ -1,5 +1,5 @@
-import { apiClient } from './api';
-import { DatasetSearchParams, DatasetSearchResponse, Dataset } from '../types';
+import { apiClient } from './client';
+import { DatasetSearchParams, DatasetSearchResponse, Dataset } from '../../types';
 
 export const atlasService = {
   async search(params: DatasetSearchParams): Promise<DatasetSearchResponse> {

@@ -1,4 +1,4 @@
-import { useAppStore, type ActiveTab } from '../../store/appStore';
+import { useAppStore, type ActiveTab } from '../../lib/store/appStore';
 import { ChatInterface } from '../chat/ChatInterface';
 import { LivingAtlasSearch } from '../atlas/LivingAtlasSearch';
 import { AppPreview } from '../preview/AppPreview';

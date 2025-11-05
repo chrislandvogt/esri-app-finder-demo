@@ -1,4 +1,4 @@
-import { useAppStore } from '../../store/appStore';
+import { useAppStore } from '../../lib/store/appStore';
 
 export function Header() {
   const sidebarOpen = useAppStore((state) => state.sidebarOpen);

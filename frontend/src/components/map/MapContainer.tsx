@@ -1,5 +1,5 @@
 import { InteractiveMap } from './InteractiveMap';
-import { useAppStore } from '../../store/appStore';
+import { useAppStore } from '../../lib/store/appStore';
 
 export function MapContainer() {
   const selectedDatasets = useAppStore((state) => state.selectedDatasets);

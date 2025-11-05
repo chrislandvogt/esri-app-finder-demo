@@ -1,14 +1,13 @@
 import axios, { AxiosInstance, AxiosError } from 'axios';
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:7071/api';
+import { CONFIG, STORAGE_KEYS } from '../../config';
 
 class ApiClient {
   private client: AxiosInstance;
 
   constructor() {
     this.client = axios.create({
-      baseURL: API_BASE_URL,
-      timeout: 30000,
+      baseURL: CONFIG.API_BASE_URL,
+      timeout: CONFIG.API_TIMEOUT,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -18,7 +17,7 @@ class ApiClient {
     this.client.interceptors.request.use(
       (config) => {
         // Add session ID to headers if needed
-        const sessionId = localStorage.getItem('sessionId');
+        const sessionId = localStorage.getItem(STORAGE_KEYS.SESSION_ID);
         if (sessionId) {
           config.headers['X-Session-ID'] = sessionId;
         }

@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import type { ESRIApp, LivingAtlasDataset } from '../types';
 
 export type ActiveTab = 'chat' | 'atlas' | 'preview';
 
-interface AppState {
+export interface AppState {
   // UI State
   sidebarOpen: boolean;
   activeTab: ActiveTab;
@@ -12,8 +12,8 @@ interface AppState {
   sessionId: string;
   
   // App Selection
-  selectedApp: string | null;
-  selectedDatasets: string[];
+  selectedApp: ESRIApp | null;
+  selectedDatasets: LivingAtlasDataset[];
   
   // Map Configuration
   currentWebMapId: string | null;
@@ -22,8 +22,8 @@ interface AppState {
   // Actions
   setSidebarOpen: (open: boolean) => void;
   setActiveTab: (tab: ActiveTab) => void;
-  setSelectedApp: (appId: string | null) => void;
-  addDataset: (datasetId: string) => void;
+  setSelectedApp: (app: ESRIApp | null) => void;
+  addDataset: (dataset: LivingAtlasDataset) => void;
   removeDataset: (datasetId: string) => void;
   clearDatasets: () => void;
   setCurrentWebMapId: (mapId: string | null) => void;
@@ -46,35 +46,32 @@ const initialState = {
   mapExtent: null,
 };
 
-export const useAppStore = create<AppState>()(
-  devtools(
-    (set) => ({
-      ...initialState,
-      
-      setSidebarOpen: (open) => set({ sidebarOpen: open }),
-      
-      setActiveTab: (tab) => set({ activeTab: tab }),
-      
-      setSelectedApp: (appId) => set({ selectedApp: appId }),
-      
-      addDataset: (datasetId) =>
-        set((state) => ({
-          selectedDatasets: [...state.selectedDatasets, datasetId],
-        })),
-      
-      removeDataset: (datasetId) =>
-        set((state) => ({
-          selectedDatasets: state.selectedDatasets.filter((id) => id !== datasetId),
-        })),
-      
-      clearDatasets: () => set({ selectedDatasets: [] }),
-      
-      setCurrentWebMapId: (mapId) => set({ currentWebMapId: mapId }),
-      
-      setMapExtent: (extent) => set({ mapExtent: extent }),
-      
-      reset: () => set({ ...initialState, sessionId: generateSessionId() }),
-    }),
-    { name: 'AppStore' }
-  )
-);
+export const useAppStore = create<AppState>((set) => ({
+  ...initialState,
+  
+  setSidebarOpen: (open) => set({ sidebarOpen: open }),
+  
+  setActiveTab: (tab) => set({ activeTab: tab }),
+  
+  setSelectedApp: (app) => set({ selectedApp: app }),
+  
+  addDataset: (dataset) =>
+    set((state) => ({
+      selectedDatasets: state.selectedDatasets.find(d => d.id === dataset.id) 
+        ? state.selectedDatasets 
+        : [...state.selectedDatasets, dataset]
+    })),
+  
+  removeDataset: (datasetId) =>
+    set((state) => ({
+      selectedDatasets: state.selectedDatasets.filter((d) => d.id !== datasetId),
+    })),
+  
+  clearDatasets: () => set({ selectedDatasets: [] }),
+  
+  setCurrentWebMapId: (mapId) => set({ currentWebMapId: mapId }),
+  
+  setMapExtent: (extent) => set({ mapExtent: extent }),
+  
+  reset: () => set({ ...initialState, sessionId: generateSessionId() }),
+}));

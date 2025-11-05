@@ -60,6 +60,37 @@ export enum AppCategory {
   WORKFORCE = 'workforce',
 }
 
+export interface ESRIApp {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  thumbnailUrl: string;
+  configUrl: string;
+  features: string[];
+  useCases: string[];
+  complexity: 'beginner' | 'intermediate' | 'advanced';
+}
+
+export interface LivingAtlasDataset {
+  id: string;
+  title: string;
+  description: string;
+  owner: string;
+  type: string;
+  tags: string[];
+  thumbnailUrl: string;
+  itemUrl: string;
+  created: Date;
+  modified: Date;
+  extent: {
+    xmin: number;
+    ymin: number;
+    xmax: number;
+    ymax: number;
+  };
+}
+
 export interface SuggestedAction {
   type: 'create-map' | 'search-datasets' | 'configure-app';
   label: string;

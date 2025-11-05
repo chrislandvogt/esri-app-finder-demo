@@ -1,10 +1,8 @@
 import { useAppStore } from '../../store/appStore';
 
 export function Header() {
-  const { sidebarOpen, setSidebarOpen } = useAppStore((state) => ({
-    sidebarOpen: state.sidebarOpen,
-    setSidebarOpen: state.setSidebarOpen,
-  }));
+  const sidebarOpen = useAppStore((state) => state.sidebarOpen);
+  const setSidebarOpen = useAppStore((state) => state.setSidebarOpen);
 
   return (
     <header className="bg-esri-blue-600 text-white h-16 flex items-center px-4 shadow-md z-10">

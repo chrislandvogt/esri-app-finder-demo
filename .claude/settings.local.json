@@ -7,7 +7,8 @@
       "Bash(gh agent-task:*)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(timeout 30 bash:*)"
     ],
     "deny": [],
     "ask": []

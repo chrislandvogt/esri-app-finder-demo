@@ -1,14 +1,12 @@
-import { useAppStore, ActiveTab } from '../../store/appStore';
+import { useAppStore, type ActiveTab } from '../../store/appStore';
 import { ChatInterface } from '../chat/ChatInterface';
 import { LivingAtlasSearch } from '../atlas/LivingAtlasSearch';
 import { AppPreview } from '../preview/AppPreview';
 
 export function Sidebar() {
-  const { sidebarOpen, activeTab, setActiveTab } = useAppStore((state) => ({
-    sidebarOpen: state.sidebarOpen,
-    activeTab: state.activeTab,
-    setActiveTab: state.setActiveTab,
-  }));
+  const sidebarOpen = useAppStore((state) => state.sidebarOpen);
+  const activeTab = useAppStore((state) => state.activeTab);
+  const setActiveTab = useAppStore((state) => state.setActiveTab);
 
   const tabs: { id: ActiveTab; label: string; icon: string }[] = [
     { id: 'chat', label: 'Chat', icon: '💬' },

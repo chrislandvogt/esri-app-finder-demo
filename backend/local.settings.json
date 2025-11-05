@@ -1,0 +1,11 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AZURE_OPENAI_ENDPOINT": "https://your-resource.openai.azure.com",
+    "AZURE_OPENAI_API_KEY": "your_key_here",
+    "AZURE_OPENAI_DEPLOYMENT_NAME": "gpt-4",
+    "ESRI_API_KEY": "your_esri_key_here"
+  }
+}

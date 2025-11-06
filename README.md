@@ -8,9 +8,26 @@
 [![Azure Functions](https://img.shields.io/badge/Azure%20Functions-v4-0062AD.svg)](https://azure.microsoft.com/en-us/services/functions/)
 [![ArcGIS](https://img.shields.io/badge/ArcGIS%20SDK-4.31-007ac2.svg)](https://developers.arcgis.com/)
 
-**Version 1.0.0** | [Changelog](./CHANGELOG.md) | [Roadmap](./docs/spec-kit/ROADMAP.md)
+**Version 1.0.0** | [Changelog](./CHANGELOG.md) | [Roadmap](./docs/spec-kit/ROADMAP.md) | **[🚀 Start Here](./START-HERE.md)**
 
 A conversational AI chat tool that guides non-technical business users and policy makers to discover the right ESRI configurable application, create web maps, and search Living Atlas content.
+
+---
+
+## 👋 New Here?
+
+**Want to try this app locally?** Check out our step-by-step guide:
+
+### **[📖 Getting Started Guide →](./START-HERE.md)**
+
+The guide includes:
+- ⚡ 10-minute quick start
+- 📋 Prerequisites checklist
+- 🔧 Detailed setup instructions
+- 🛠️ Troubleshooting tips
+- 🎯 Next steps for contributors
+
+---
 
 ## 🚀 Quick Start
 
